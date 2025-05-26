@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'yourdockerhubusername/nodejs-webapp'
-        DOCKER_CREDENTIALS_ID = 'dockerhub-creds' // We'll create this in Step 6
+        IMAGE_NAME = 'hritvi2021/nodejs-webapp'
+        DOCKER_CREDENTIALS_ID = 'dockerhub-creds' 
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-repo-name.git'
+                git branch: 'main', url: 'https://github.com/Hritvi2021/nodejs-docker-app.git'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('', "${DOCKER_CREDENTIALS_ID}") {
+                    docker.withRegistry('', "${dockerhub-creds}") {
                         docker.image("${IMAGE_NAME}:latest").push()
                     }
                 }
