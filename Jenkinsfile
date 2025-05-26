@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'hritvi2021/nodejs-webapp'
+        IMAGE_NAME = 'dockerhub-username/nodejs-webapp'
         DOCKER_CREDENTIALS_ID = 'dockerhub-creds' 
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Hritvi2021/nodejs-docker-app.git'
+                git branch: 'main', url: 'https://github.com /your-repository-name/nodejs-docker-app.git'
             }
         }
 
